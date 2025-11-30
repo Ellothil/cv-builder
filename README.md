@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, print-optimized CV/Resume builder built with React, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+![CV Preview](public/preview.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Print-Optimized**: Designed specifically for A4 paper size with perfect margins and layout.
+- **Data-Driven**: All content is managed in a single structured data file (`src/data/data.ts`).
+- **Modern Tech Stack**: Built with React 19, TypeScript, and Tailwind CSS 4.
+- **Clean Design**: Professional layout with a dark sidebar and clean content area.
+- **PDF Export**: Built-in print button to easily save your CV as a PDF.
+- **Type Safe**: Fully typed interfaces for your resume data.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Linting/Formatting**: [Biome](https://biomejs.dev/) + [Ultracite](https://www.ultracite.ai/)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js (Latest LTS recommended)
+- pnpm (recommended) or npm/yarn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd cv-builder
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+3. Start the development server:
+   ```bash
+   pnpm dev
+   ```
+
+4. Open your browser at `http://localhost:5173`
+
+## Customization
+
+### Updating Content
+
+To update the CV with your own information, simply edit the `src/data/data.ts` file. This file exports a `resumeData` object that adheres to the `ResumeData` interface.
+
+```typescript
+// src/data/data.ts
+export const resumeData: ResumeData = {
+  personal: {
+    name: "Your Name",
+    title: "Your Title",
+    // ...
   },
-])
+  // ...
+};
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Changing the Layout
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The main layout is defined in `src/app.tsx`. The application uses a CSS Grid layout optimized for A4 dimensions (210mm x 297mm).
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Left Column**: `src/components/profile-image.tsx`, `contact.tsx`, `tech-skills.tsx`, `languages.tsx`
+- **Main Content**: `header.tsx`, Projects/Education/Volunteering sections, `footer.tsx`
+
+### Styling
+
+Styling is handled via Tailwind CSS and React Icons
+
+## Printing / Exporting to PDF
+
+1. Click the "Print / Save as PDF" button in the top right corner.
+2. In the print dialog, ensure the following settings are selected (Might differ based on your browser):
+   - **Destination**: Save as PDF
+   - **Paper Size**: A4
+   - **Margins**: None (The app handles margins internally)
+   - **Scale**: Default / 100%
+   - **Background Graphics**: Checked (Important for colors to show up correctly)
+
+## License
+MIT
