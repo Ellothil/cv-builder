@@ -14,11 +14,6 @@ export const resumeData: ResumeData = {
   },
   education: [
     {
-      degree: "M.Sc. Software Engineering",
-      institution: "Muster-Universität Musterstadt",
-      period: "10/2018 - 10/2020",
-    },
-    {
       degree: "B.Sc. Informatik",
       institution: "Muster-Universität Musterstadt",
       period: "10/2015 - 10/2018",
@@ -26,14 +21,14 @@ export const resumeData: ResumeData = {
   ],
   projects: [
     {
-      title: "Muster-Projekt",
+      title: "Muster-Projekt 1",
       period: "10/2021",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus nec ante finibus finibus.",
       tech: ["React", "Node.js", "Docker"],
     },
     {
-      title: "Muster-Projekt",
+      title: "Muster-Projekt 2",
       period: "10/2020",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus nec ante finibus finibus.",
