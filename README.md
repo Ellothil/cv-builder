@@ -67,6 +67,15 @@ export const resumeData: ResumeData = {
 };
 ```
 
+To add a profile image, put your image in the `public` folder and name it `foto.jpg`.
+To add a digital signature, put your signature in the `public` folder and name it `unterschrift.png`. 
+To remove the signature placeholder for manual signing, comment out the following in `src/components/footer.tsx`:
+
+```typescript
+// src/components/footer.tsx
+<img alt="Unterschrift" className="h-16" src="/unterschrift.png" />
+```
+
 ### Changing the Layout
 
 The main layout is defined in `src/app.tsx`. The application uses a CSS Grid layout optimized for A4 dimensions (210mm x 297mm).
