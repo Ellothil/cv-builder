@@ -1,7 +1,5 @@
 # CV Builder
 
-A modern, print-optimized CV/Resume builder built with React, TypeScript, and Tailwind CSS.
-
 ![CV Preview](public/preview.png)
 
 ## Features
