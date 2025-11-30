@@ -1,4 +1,5 @@
 import { type MouseEvent, useState, type WheelEvent } from "react";
+import { resumeData } from "@/data/data";
 
 /**
  * ProfileImage component displays a profile picture with interactive zoom and drag capabilities.
@@ -48,7 +49,7 @@ export function ProfileImage() {
         type="button"
       >
         <img
-          alt="Nils Reith"
+          alt={resumeData.personal.name}
           className="pointer-events-none object-cover"
           height={120}
           src="/foto.jpg"
